@@ -12,7 +12,7 @@ function Header() {
       </IconButton>
 
       <img
-        src="https://toppng.com/uploads/preview/tinder-logo-transparent-tinder-logo-11563243301zivc1sx84c.png"
+        src="https://logos-world.net/wp-content/uploads/2020/09/Tinder-Symbol.png"
         alt="tinder logo"
         className="header__logo"
       />
