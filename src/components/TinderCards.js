@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./TinderCards.css";
 import TinderCard from "react-tinder-card";
 
-const peoples = [
-  {
-    name: "Lisa Brown",
-    url: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg",
-  },
-  {
-    name: "Mike Smith",
-    url: "https://images.pexels.com/photos/1466844/pexels-photo-1466844.jpeg",
-  },
-];
-
 function TinderCards() {
-  const [people, setPeople] = useState(peoples);
+  const [people, setPeople] = useState([]);
+
+  //Get users from Database
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetch(
+        "https://restapi-mongo.onrender.com/api/tinder/users"
+      );
+      const body = await result.json();
+      setPeople(body);
+    };
+    fetchData();
+  }, []);
+
   const onSwipe = (direction) => {
     console.log("You swiped: " + direction);
   };
